@@ -1,0 +1,584 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    display:flex;
+    min-height:100vh;
+    background:#f4f6f9;
+}
+
+.sidebar{
+    width:220px;
+    background:#cf202f;
+    color:white;
+    padding:20px;
+}
+
+.sidebar h2{
+    margin-bottom:30px;
+}
+
+.sidebar button{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border:none;
+    border-radius:6px;
+    background:white;
+    color:#cf202f;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.contenu{
+    flex:1;
+    padding:20px;
+}
+
+.onglet{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cache{
+    display:none;
+}
+
+.entete-planning{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:20px;
+}
+
+.filtres-planning{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.filtres-planning select{
+    padding:5px;
+}
+
+.message-planning{
+    margin-bottom:20px;
+    padding:10px;
+    background:#eef6ff;
+    border:1px solid #c8dfff;
+    border-radius:5px;
+}
+
+.conteneur-grille{
+    overflow:auto;
+}
+
+.section{
+    margin-bottom:30px;
+}
+
+.bandeau-section{
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+    color:#17202a;
+}
+
+.dep{
+    background:#b7e4c7;
+}
+
+.nord{
+    background:#b9d6f2;
+}
+
+.ouest{
+    background:#f7c89b;
+}
+
+.sud{
+    background:#d8b9ec;
+}
+.bloc-formation{
+
+    display:inline-block;
+
+    margin:5px;
+
+    padding:8px 12px;
+
+    background:#dbeafe;
+
+    border-left:5px solid #4472C4;
+
+    border-radius:4px;
+
+    font-size:12px;
+
+    min-width:140px;
+
+}
+
+.titre-formation{
+
+    font-weight:bold;
+
+    color:#1f1f1f;
+
+}
+
+.periode-formation{
+
+    margin-top:4px;
+
+    color:#666;
+
+    font-size:11px;
+
+}
+.grille-planning-visuel {
+    display: grid;
+    min-width: max-content;
+    border-left: 1px solid #aeb7c2;
+    border-top: 1px solid #aeb7c2;
+    background: white;
+}
+
+.entete-dates-planning,
+.bandeau-section-planning,
+.entete-domaine-planning,
+.jour-planning,
+.cellule-calendrier {
+    border-right: 1px solid #aeb7c2;
+    border-bottom: 1px solid #aeb7c2;
+}
+
+.entete-mois-planning {
+
+    position: sticky;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    background: #4472c4;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+.entete-dates-planning {
+
+    position: sticky;
+
+    top: 40px;
+
+    left: 0;
+
+    z-index: 600;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    white-space: pre-line;
+
+    color: white;
+
+    background: #4472c4;
+
+}
+
+.bandeau-section-planning {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 450;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.section-departementale {
+    background: #b7e4c7;
+}
+
+.section-nord {
+    background: #b9d6f2;
+}
+
+.section-ouest {
+    background: #f7c89b;
+}
+
+.section-sud {
+    background: #d8b9ec;
+}
+
+.section-autre {
+    background: #d9dde3;
+}
+
+.entete-domaine-planning {
+
+    position: sticky;
+
+    top: 40px;
+
+    z-index: 400;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px;
+
+    background: #e7eef3;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    text-align: center;
+
+}
+
+.jour-planning {
+    position: sticky;
+    left: 0;
+
+    z-index: 300;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.jour-planning.week-end,
+.cellule-calendrier.week-end {
+    background: #d7d7d7;
+}
+
+.cellule-calendrier {
+    background: white;
+}
+
+.bloc-formation-planning {
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2px;
+    padding: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 2px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.15;
+    cursor: help;
+}
+
+.bloc-formation-planning strong {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bloc-formation-planning span {
+    margin-top: 3px;
+    font-size: 9px;
+    font-weight: bold;
+}
+.contenu {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.onglet {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.entete-planning {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: white;
+}
+
+.filtres-planning {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+.conteneur-grille {
+
+    position: relative;
+
+    overflow-x: auto;
+
+    overflow-y: auto;
+
+    max-height: calc(100vh - 220px);
+
+}
+
+.table-raf{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+}
+
+.table-raf th{
+
+    background:#cf202f;
+
+    color:white;
+
+    padding:10px;
+
+    text-align:left;
+
+}
+
+.table-raf td{
+
+    padding:10px;
+
+    border:1px solid #ddd;
+
+}
+
+.apercu-raf{
+
+    width:40px;
+
+    height:25px;
+
+    border:1px solid #888;
+
+    border-radius:4px;
+
+}
+.entete-plateau{
+
+    margin-bottom:15px;
+
+}
+
+#planningPlateau{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(6,minmax(220px,1fr));
+
+    gap:6px;
+
+    width:100%;
+
+}
+
+
+.mois-plateau{
+
+    border:1px solid #888;
+
+    background:white;
+
+    min-height:
+    calc(
+        (100vh - 260px)
+        / 2
+    );
+
+
+}
+
+.titre-mois{
+
+    text-align:center;
+
+    font-weight:bold;
+
+    background:#d9d9d9;
+
+    padding:4px;
+
+}
+
+.grille-mois{
+
+    display:grid;
+
+    grid-template-columns:
+        60px 1fr;
+
+    grid-auto-rows:22px;
+
+}
+
+
+.entete-colonne{
+
+    background:#efefef;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    border:1px solid #ccc;
+
+    padding:3px;
+
+}
+
+.case-date{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    height:20px;
+
+    text-align:center;
+
+    border:1px solid #ddd;
+
+    padding:0;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+}
+
+.case-inc{
+
+    border:1px solid #ddd;
+
+    height:22px;
+
+    overflow:hidden;
+
+    font-size:10px;
+
+}
+
+.weekend{
+
+    background:#fff36b;
+}
+
+.table-regles{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+}
+
+.table-regles th{
+
+    background:#4472c4;
+
+    color:white;
+
+    padding:8px;
+
+    text-align:left;
+
+}
+
+.table-regles td{
+
+    border:1px solid #ddd;
+
+    padding:8px;
+
+}
+
+.btn-ajout{
+
+    background:#cf202f;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 12px;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+}

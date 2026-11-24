@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning GFD</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <h2>🚒 Planning GFD</h2>
+
+        <button onclick="afficherOnglet('planning')">
+            Planning Général
+        </button>
+
+        <button onclick="afficherOnglet('plateau')">
+            Plateau Technique
+        </button>
+
+        <button onclick="afficherOnglet('raf')">
+            RAF
+        </button>
+
+        <button onclick="afficherOnglet('parametres')">
+            Paramètres
+        </button>
+
+    </aside>
+
+    <main class="contenu">
+
+        <section id="planning" class="onglet">
+
+            <div class="entete-planning">
+
+                <div>
+                    <h1>Planning GFD</h1>
+                    <p id="dateMaj"></p>
+                </div>
+
+                <div class="filtres-planning">
+
+                    <label>Année</label>
+
+                   <select id="filtreAnnee">
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                    </select>
+
+                    <label>Mois</label>
+
+                    <select id="filtreMois">
+                         <option value="0">Janvier</option>
+                         <option value="1">Février</option>
+                         <option value="2">Mars</option>
+                         <option value="3">Avril</option>
+                         <option value="4">Mai</option>
+                         <option value="5">Juin</option>
+                         <option value="6">Juillet</option>
+                         <option value="7">Août</option>
+                         <option value="8">Septembre</option>
+                         <option value="9">Octobre</option>
+                         <option value="10">Novembre</option>
+                         <option value="11" selected>Décembre</option>
+                    </select>
+
+                    <label>Section</label>
+
+                    <select id="filtreSection">
+
+                        <option value="TOUTES">
+                            Toutes les sections
+                        </option>
+
+                        <option value="DEPARTEMENTALE">
+                            Départementale
+                        </option>
+
+                        <option value="NORD">
+                            Nord
+                        </option>
+
+                        <option value="OUEST">
+                            Ouest
+                        </option>
+
+                        <option value="SUD">
+                            Sud
+                        </option>
+
+                    </select>
+
+                    <label>RAF</label>
+
+                    <select id="filtreRaf">
+
+                        <option value="TOUS">
+                            Tous
+                         </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div id="messagePlanning"
+                class="message-planning">
+                Lecture du fichier Excel...
+            </div>
+
+            <div class="conteneur-grille">
+
+                <div id="grillePlanning">
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="plateau" class="onglet cache">
+
+    <div class="entete-plateau">
+
+        <h1>
+            Planning Plateau Technique
+        </h1>
+
+    </div>
+
+    <div id="planningPlateau">
+    </div>
+
+</section>
+
+        <section id="raf" class="onglet cache">
+
+            <h1>Gestion des RAF</h1>
+
+            <div id="listeRAF"></div>
+
+        </section>
+
+        <section id="parametres" class="onglet cache">
+
+    <h1>Paramètres</h1>
+
+    <button
+        onclick="ajouterReglePlateau()"
+        class="btn-ajout">
+
+        + Ajouter une règle
+
+    </button>
+
+    <br><br>
+
+    <div id="tableReglesPlateau">
+    </div>
+
+</section>
+
+    </main>
+
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
